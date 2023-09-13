@@ -4,7 +4,7 @@ FROM golang:alpine AS build
 # Enable go modules
 ENV GO111MODULE=on
 
-# Install git (alpine image does not have git in it)
+# Install git (alpine image does not it, and go uses it to download dependencies)
 RUN apk update && apk add --no-cache git
 
 # Set current working directory - /app is the convention, but not mandatory
@@ -36,4 +36,4 @@ COPY --from=build /app .
 EXPOSE 8080
 
 # The Command that will get executed when we run the container
-CMD ["./notification"]%
+CMD ["./hello"]%
