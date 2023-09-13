@@ -14,5 +14,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/hello", helloHandler)
+	//print that the server is running
+	fmt.Println("Server is running on port 8080")
 	http.ListenAndServe(":8080", r)
 }
