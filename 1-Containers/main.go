@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -10,8 +12,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	server := http.NewServeMux()
-	server.HandleFunc("/hello", helloHandler)
-	fmt.Println("Server is running on port 8080")
-	http.ListenAndServe(":8080", server)
+	r := mux.NewRouter()
+	r.HandleFunc("/hello", helloHandler)
+	http.ListenAndServe(":8080", r)
 }
