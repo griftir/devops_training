@@ -1,0 +1,18 @@
+on: 
+  push:
+    branches: [ main ]
+    paths:
+    - '2-Automate-Builds/**'
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build -t griftir/section2:$(date +"%Y-%m-%d")-${{ github.sha }} ./2-Automate-Builds
+    - name: Push the Docker image to Docker Hub
+      run: |
+        docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+        docker push griftir/section2:$(date +"%Y-%m-%d")-${{ github.sha }}
