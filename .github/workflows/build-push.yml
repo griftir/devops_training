@@ -1,5 +1,3 @@
-#Github action that runs on pushing to main in the 2-Automate-Builds folder, builds the dockerfile and tags it with the current date in the format YYYY-MM-DD concatenated with the last 8 characters of a sha1 hash of the commit, afterwards it pushes the image to dockerhub.
-
 on: 
   push:
     branches: [ main ]
@@ -8,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
