@@ -1,16 +1,18 @@
-name: Test on Pull Request
+name: test on PR
 
-on: 
+
+on:
   pull_request:
     branches:
       - main
-    paths:
-      - 2-Automate-Builds
+
+
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run unit tests
+      - name: run unit tests
         run: cd 2-Automate-Builds && go test ./...
+    
