@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - 2-Automate-Builds
+  workflow_dispatch:
 
 jobs:
   test:
