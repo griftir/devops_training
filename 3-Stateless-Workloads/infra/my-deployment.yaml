@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  mine
+  namespace: default
+  labels:
+    app:  mine
+spec:
+  selector:
+    matchLabels:
+      app: mine
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app:  mine
+    spec:
+      containers:
+      - name:  webserver
+        image:  griftir/section2:1ec344f10cf1138f2901bb5f95fdb1103a0f8498
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort:  8080
+          name:  mine
+
+      restartPolicy: Always
