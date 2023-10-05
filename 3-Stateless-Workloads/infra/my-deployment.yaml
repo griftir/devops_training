@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: mine
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
@@ -30,3 +30,18 @@ spec:
           name:  mine
 
       restartPolicy: Always
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: mine
+  type: ClusterIP
+  ports:
+  - name: my-app-service
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
