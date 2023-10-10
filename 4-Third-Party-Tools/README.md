@@ -13,3 +13,9 @@ There are a number of cloud native tools that can help us in creating a 12-facto
 * Create an ingress for our application
 * Create an ArgoCD app to track changes to our application
 
+## Success Criteria
+
+* Able to access our service from outside the cluster via kuberenetes.docker.internal or whatever DNS is in /etc/hosts
+* Able to make changes to manifests and have them picked up by argocd
+
+
