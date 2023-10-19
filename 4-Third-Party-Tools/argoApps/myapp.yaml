@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp3
+  namespace: default
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.docker.internal:6443
+  project: default
+  source:
+    path: 4-Third-Party-Tools/infra
+    repoURL: https://github.com/griftir/devops_training
+    targetRevision: solutions
