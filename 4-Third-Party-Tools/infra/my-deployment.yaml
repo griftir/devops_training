@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name:  webserver
-        image:  griftir/section2:1ec344f10cf1138f2901bb5f95fdb1103a0f8498
+        image:  griftir/section2:latest
         resources:
           requests:
             cpu: 100m
